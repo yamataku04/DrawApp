@@ -20,7 +20,7 @@ public SampleView(Context context){
 }
 @Override
 public void onDraw(Canvas canvas){
-	canvas.drawText("Hello",100,100,paint);
+	canvas.drawCircle(100,100,5,paint);
 }
 
 }
