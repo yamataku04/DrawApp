@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 public class SampleView extends View {
 	
@@ -13,14 +15,21 @@ public class SampleView extends View {
 	/**
 	 * @param args
 	 */
-	
+	//import:Ctrl+Shift+O
+	//コードアシスト：Ctrl+space
 public SampleView(Context context){
 	super(context);
 	setBackgroundColor(Color.WHITE);
 }
 @Override
 public void onDraw(Canvas canvas){
+	paint.setColor(Color.RED);
 	canvas.drawCircle(100,100,5,paint);
 }
+/**@Override
+public boolean onTouchEvent(MotionEvent event){
+	Toast.makeText(getContext(), "Touchされました", Toast.LENGTH_SHORT).show();
+return true;	
+}**/
 
 }
