@@ -26,10 +26,10 @@ public void onDraw(Canvas canvas){
 	paint.setColor(Color.RED);
 	canvas.drawCircle(100,100,5,paint);
 }
-/**@Override
+@Override
 public boolean onTouchEvent(MotionEvent event){
 	Toast.makeText(getContext(), "Touch‚³‚ê‚Ü‚µ‚½", Toast.LENGTH_SHORT).show();
 return true;	
-}**/
+}
 
 }
