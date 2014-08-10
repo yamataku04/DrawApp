@@ -11,7 +11,9 @@ import android.widget.Toast;
 public class SampleView extends View {
 	
 	private Paint paint=new Paint();
-
+	private int color =Color.RED;
+	private int bx=100;
+	private int by=100;
 	/**
 	 * @param args
 	 */
@@ -23,12 +25,32 @@ public SampleView(Context context){
 }
 @Override
 public void onDraw(Canvas canvas){
-	paint.setColor(Color.RED);
+	paint.setColor(color);
 	canvas.drawCircle(100,100,5,paint);
 }
 @Override
 public boolean onTouchEvent(MotionEvent event){
-	Toast.makeText(getContext(), "Touchされました", Toast.LENGTH_SHORT).show();
+	int action=event.getAction();
+	if((action&MotionEvent.ACTION_MASK)==//bit演算
+			MotionEvent.ACTION_DOWN){//ボタンを押したときに表示される(どこでも)
+	int ex=(int)event.getX();
+	int ey=(int)event.getY();
+	
+	
+	if((bx-ex)*(bx-ex)+(by-ey)*(by-ey)<=20*20){//点の座標指定
+		Toast.makeText(getContext(), "Touchされました", 
+				Toast.LENGTH_SHORT).show();//色変え。青だったら赤に。赤だったら青に
+		if(color==Color.BLUE){
+			color=Color.RED;
+		}else{
+			color=Color.BLUE;
+		}
+		
+		invalidate();//再描画
+		
+	}
+		
+	}
 return true;	
 }
 
